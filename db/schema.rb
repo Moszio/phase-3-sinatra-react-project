@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_08_22_184613) do
   create_table "messages", force: :cascade do |t|
     t.string "body"
     t.string "owner"
-    t.datetime "sent_at"
+    t.time "sent_at"
   end
 
   create_table "users", force: :cascade do |t|

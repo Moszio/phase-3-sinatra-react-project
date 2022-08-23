@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration[6.1]
     create_table :messages do |t|
       t.string(:body)
       t.string(:owner)
-      t.timestamp(:sent_at)
+      t.time(:sent_at)
     end
   end
 end
