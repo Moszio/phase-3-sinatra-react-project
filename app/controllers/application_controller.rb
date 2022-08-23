@@ -29,7 +29,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/messages" do
-    message = Message.create(body: params[:body], owner: params[:owner], sent_at: params[:sent_at])
+    message = Message.create(
+      body: params[:body], 
+      owner: params[:owner], 
+      sent_at: params[:sent_at]
+    )
     message.to_json
   end
 
