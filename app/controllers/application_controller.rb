@@ -28,6 +28,11 @@ class ApplicationController < Sinatra::Base
     messages.to_json
   end
 
+  get '/messages/:id' do
+    message = Message.find(params[:id])
+    message.to_json
+  end
+
   post "/messages" do
     message = Message.create(
       body: params[:body], 
@@ -37,4 +42,15 @@ class ApplicationController < Sinatra::Base
     message.to_json
   end
 
+  delete '/messages/:id' do
+    message = Message.find(params[:id])
+    message.destroy
+    message.to_json
+  end
+
+  patch '/messages/:id' do
+    message = Message.find(params[:id])
+    message.update(body: params[:body])
+    message.to_json
+  end
 end
