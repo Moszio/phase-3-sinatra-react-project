@@ -9,8 +9,10 @@ class ApplicationController < Sinatra::Base
 
   get '/users' do
     users = User.all
-    users.to_json
+    users.to_json(include: :messages)
   end
+
+
 
   post '/users' do
     userNew = User.create(
@@ -25,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
   get '/messages' do
     messages = Message.all
-    messages.to_json
+    messages.to_json(include: :admin)
   end
 
   get '/messages/:id' do
